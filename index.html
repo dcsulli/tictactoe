@@ -71,8 +71,9 @@
         }//end function makeBoard
         function checkWin() {
             if(boardArray[0][0].innerHTML == 'X' && boardArray[0][1].innerHTML == 'X' && boardArray[0][2].innerHTML == 'X'){
-                alert("You WIn");
-                
+                alert("Player 1 Wins!");
+                var playerOneScore = document.getElementById('player-1-score');
+                playerOneScore.innerHTML(x += 1)
             }
         }
         var board = document.getElementById("board");
