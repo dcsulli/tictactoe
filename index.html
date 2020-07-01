@@ -6,26 +6,14 @@
     </head>
     <body>
         <h1 class="text-center">Tic Tac Toe</h1>
+        <br>
+        <h2 id='player-turn' class='text-center'>Player 1's Turn</h2>
         <div class="container" id="board"></div>
     </body>
     <script type="text/javascript">
         var player = true;
-        function makeMove(){
-        if (player) {
-            this.innerHTML ="X";
-            checkWin();  
-            rowElement.appendChild(columnElement);
-            player = false;
-            } else {
-            this.innerHTML ="O";
-            checkWin();
-            rowElement.appendChild(columnElement);
-            player = true;
-            };
-        }
-
-
         function makeBoard(boardElement) {
+            var playerTurn = document.getElementById('player-turn')
             var rows = 3;
             var columns = 3;
             for (let i = 0; i < rows; i++) {
@@ -37,21 +25,27 @@
                 for (let j = 0; j < columns; j++) {
                     var columnElement = document.createElement('div');
                     columnElement.className = 'col-sm-4 border text-center';
-                    columnElement.innerHTML = "Row " + i + " Column " + j;
+                    columnElement.innerHTML = ' ';
                     columnElement.setAttribute("style" ,"height:100px");
                     columnElement.id = i + '-' + j;
                     columnElement.addEventListener('click', function(){
-                        if (player) {
-                            this.innerHTML ="X";
-                            checkWin();  
-                            rowElement.appendChild(columnElement);
-                            player = false;
+                        if (this.innerHTML != 'X' && this.innerHTML != 'O'){
+                            if (player) {
+                                this.innerHTML ="X";
+                                checkWin();  
+                                rowElement.appendChild(columnElement);
+                                player = false;
+                                playerTurn.innerHTML=("Player 2's Turn")
+                            }  else {
+                                this.innerHTML ="O";
+                                checkWin();
+                                rowElement.appendChild(columnElement);
+                                player = true;
+                                playerTurn.innerHTML=("Player 1's Turn")
+                                }
                             } else {
-                            this.innerHTML ="O";
-                            checkWin();
-                            rowElement.appendChild(columnElement);
-                            player = true;
-                            };
+                                alert ('Please select an available space.')
+                            } 
                     });
                     boardArray[i][j] = columnElement;
                     rowElement.appendChild(columnElement);
