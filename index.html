@@ -3,12 +3,27 @@
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+
+        </style>
     </head>
     <body>
         <h1 class="text-center">Tic Tac Toe</h1>
         <br>
         <h2 id='player-turn' class='text-center'>Player 1's Turn</h2>
         <div class="container" id="board"></div>
+        <div class="score-board">
+            <h2 class="text-center">Scoreboard</h2>
+            <div class='row'>
+                <div class="col-6"><h3 class='text-center'>Player 1</h3></div>
+                <div class="col-6"><h3 class='text-center'>Player 2</h3></div>
+            </div>
+            <div class='row'>
+                <div class="col-6" id='player-1-score'><h3 class='text-center'>0</h3></div>
+                <div class="col-6" id='player-2-score'><h3 class='text-center'>0</h3></div>
+            </div>
+
+        </div>
     </body>
     <script type="text/javascript">
         var player = true;
@@ -57,6 +72,7 @@
         function checkWin() {
             if(boardArray[0][0].innerHTML == 'X' && boardArray[0][1].innerHTML == 'X' && boardArray[0][2].innerHTML == 'X'){
                 alert("You WIn");
+                
             }
         }
         var board = document.getElementById("board");
