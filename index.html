@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <h1 class="text-center">Tic Tac Toe</h1>
+        <div class="container" id="board"></div>
+    </body>
+    <script type="text/javascript">
+        var player = true;
+        function makeMove(){
+        if (player) {
+            this.innerHTML ="X";
+            checkWin();  
+            rowElement.appendChild(columnElement);
+            player = false;
+            } else {
+            this.innerHTML ="O";
+            checkWin();
+            rowElement.appendChild(columnElement);
+            player = true;
+            };
+        }
+
+
+        function makeBoard(boardElement) {
+            var rows = 3;
+            var columns = 3;
+            for (let i = 0; i < rows; i++) {
+                var rowElement = document.createElement('div');
+                rowElement.className = 'row';
+                if(!boardArray[i]) {
+                    boardArray[i] = [];
+                }
+                for (let j = 0; j < columns; j++) {
+                    var columnElement = document.createElement('div');
+                    columnElement.className = 'col-sm-4 border text-center';
+                    columnElement.innerHTML = "Row " + i + " Column " + j;
+                    columnElement.setAttribute("style" ,"height:100px");
+                    columnElement.id = i + '-' + j;
+                    columnElement.addEventListener('click', function(){
+                        if (player) {
+                            this.innerHTML ="X";
+                            checkWin();  
+                            rowElement.appendChild(columnElement);
+                            player = false;
+                            } else {
+                            this.innerHTML ="O";
+                            checkWin();
+                            rowElement.appendChild(columnElement);
+                            player = true;
+                            };
+                    });
+                    boardArray[i][j] = columnElement;
+                    rowElement.appendChild(columnElement);
+                }//end for j
+                boardElement.appendChild(rowElement);
+            }//end for i
+            console.log(boardArray);
+        }//end function makeBoard
+        function checkWin() {
+            if(boardArray[0][0].innerHTML == 'X' && boardArray[0][1].innerHTML == 'X' && boardArray[0][2].innerHTML == 'X'){
+                alert("You WIn");
+            }
+        }
+        var board = document.getElementById("board");
+        var boardArray = [];
+        makeBoard(board);
+    </script>
+</html>
