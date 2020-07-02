@@ -4,7 +4,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <style>
-
+           
         </style>
     </head>
     <body>
@@ -12,15 +12,18 @@
         <br>
         <h2 id='player-turn' class='text-center'>Player 1's Turn</h2>
         <div class="container" id="board"></div>
+        <br>
         <div class="score-board">
-            <h2 class="text-center">Scoreboard</h2>
+            <h2 class="text-center blink">Scoreboard</h2>
             <div class='row'>
-                <div class="col-6"><h3 class='text-center'>Player 1</h3></div>
-                <div class="col-6"><h3 class='text-center'>Player 2</h3></div>
+                <div class="col-3"></div>
+                <div class="col-3"><h3 class='text-center'>Player 1</h3></div>
+                <div class="col-3"><h3 class='text-center'>Player 2</h3></div>
             </div>
             <div class='row'>
-                <div class="col-6"><h3 id='player-one-score' class='text-center'>0</h3></div>
-                <div class="col-6" id='player-2-score'><h3 class='text-center'>0</h3></div>
+                <div class="col-3"></div>
+                <div class="col-3"><h3 id='player-one-score' class='text-center'>0</h3></div>
+                <div class="col-3"><h3 id='player-2-score' class='text-center'>0</h3></div>
             </div>
 
         </div>
@@ -34,25 +37,28 @@
             for (let i = 0; i < rows; i++) {
                 var rowElement = document.createElement('div');
                 rowElement.className = 'row';
+                rowElement.setAttribute("style" ,"width:450px;margin: auto");
                 if(!boardArray[i]) {
                     boardArray[i] = [];
                 }
                 for (let j = 0; j < columns; j++) {
                     var columnElement = document.createElement('div');
-                    columnElement.className = 'col-sm-4 border text-center';
+                    columnElement.className = 'col-sm-4 border text-center mx-auto';
                     columnElement.innerHTML = ' ';
-                    columnElement.setAttribute("style" ,"height:100px");
+                    columnElement.setAttribute("style" ,"height:150px");
                     columnElement.id = i + '-' + j;
                     columnElement.addEventListener('click', function(){
                         if (this.innerHTML != 'X' && this.innerHTML != 'O'){
                             if (player) {
                                 this.innerHTML ="X";
+                                this.setAttribute("style", "margin:auto");
                                 checkWin();  
                                 rowElement.appendChild(columnElement);
                                 player = false;
                                 playerTurn.innerHTML=("Player 2's Turn")
                             }  else {
                                 this.innerHTML ="O";
+                                this.setAttribute("style", "margin:auto");
                                 checkWin();
                                 rowElement.appendChild(columnElement);
                                 player = true;
