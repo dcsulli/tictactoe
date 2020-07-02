@@ -19,7 +19,7 @@
                 <div class="col-6"><h3 class='text-center'>Player 2</h3></div>
             </div>
             <div class='row'>
-                <div class="col-6" id='player-1-score'><h3 class='text-center'>0</h3></div>
+                <div class="col-6"><h3 id='player-one-score' class='text-center'>0</h3></div>
                 <div class="col-6" id='player-2-score'><h3 class='text-center'>0</h3></div>
             </div>
 
@@ -72,13 +72,13 @@
         function checkWin() {
             if(boardArray[0][0].innerHTML == 'X' && boardArray[0][1].innerHTML == 'X' && boardArray[0][2].innerHTML == 'X'){
                 alert("Player 1 Wins!");
-                var playerOneScore = document.getElementById(parseInt('player-1-score'));
-                function addScore () {
+                var playerOneScore = parseFloat(document.getElementById('player-one-score').innerHTML);
+                console.log(playerOneScore);
                 playerOneScore += 1;
-                }
-                addScore();
-                document.getElementById('player-1-score').innerHTML ="<h3 class='text-center'>" + playerOneScore + "</h3></div>";
-                
+                console.log(playerOneScore);
+                document.getElementById('player-one-score').innerHTML = playerOneScore;
+                document.getElementById('board').innerHTML = '';
+                makeBoard (document.getElementById('board'));
 
             }
         }
