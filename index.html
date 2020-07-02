@@ -11,11 +11,16 @@
         <div class="container" id="board"></div>
     </body>
     <script type="text/javascript">
+        
         var player = true;
+        
+        
+
         function makeBoard(boardElement) {
             var playerTurn = document.getElementById('player-turn')
             var rows = 3;
             var columns = 3;
+
             for (let i = 0; i < rows; i++) {
                 var rowElement = document.createElement('div');
                 rowElement.className = 'row';
@@ -54,13 +59,66 @@
             }//end for i
             console.log(boardArray);
         }//end function makeBoard
-        function checkWin() {
+        
+               
+
+            function checkWin() {
+            //Player 1 win conditions
             if(boardArray[0][0].innerHTML == 'X' && boardArray[0][1].innerHTML == 'X' && boardArray[0][2].innerHTML == 'X'){
-                alert("You WIn");
+                alert("Player 1 Wins!");
+            }
+            if(boardArray[1][0].innerHTML == 'X' && boardArray[1][1].innerHTML == 'X' && boardArray[1][2].innerHTML == 'X'){
+                alert("Player 1 Wins!");
+            }
+            if(boardArray[2][0].innerHTML == 'X' && boardArray[2][1].innerHTML == 'X' && boardArray[2][2].innerHTML == 'X'){
+                alert("Player 1 Wins!");
+            }
+            if(boardArray[0][0].innerHTML == 'X' && boardArray[1][0].innerHTML == 'X' && boardArray[2][0].innerHTML == 'X'){
+                alert("Player 1 Wins!");
+            }
+            if(boardArray[0][1].innerHTML == 'X' && boardArray[1][1].innerHTML == 'X' && boardArray[2][1].innerHTML == 'X'){
+                alert("Player 1 Wins!");
+            }
+            if(boardArray[0][2].innerHTML == 'X' && boardArray[1][1].innerHTML == 'X' && boardArray[2][2].innerHTML == 'X'){
+                alert("Player 1 Wins!");
+            }
+            if(boardArray[0][0].innerHTML == 'X' && boardArray[1][1].innerHTML == 'X' && boardArray[2][2].innerHTML == 'X'){
+                alert("Player 1 Wins!");
+            }
+            if(boardArray[2][0].innerHTML == 'X' && boardArray[1][1].innerHTML == 'X' && boardArray[0][2].innerHTML == 'X'){
+                alert("Player 1 Wins!");
+            }
+            // Player 2 Win conditions
+            if(boardArray[0][0].innerHTML == 'O' && boardArray[0][1].innerHTML == 'O' && boardArray[0][2].innerHTML == 'O'){
+                alert("Player 2 Wins!");
+            }
+            if(boardArray[1][0].innerHTML == 'O' && boardArray[1][1].innerHTML == 'O' && boardArray[1][2].innerHTML == 'O'){
+                alert("Player 2 Wins!");
+            }
+            if(boardArray[2][0].innerHTML == 'O' && boardArray[2][1].innerHTML == 'O' && boardArray[2][2].innerHTML == 'O'){
+                alert("Player 2 Wins!");
+            }
+            if(boardArray[0][0].innerHTML == 'O' && boardArray[1][0].innerHTML == 'O' && boardArray[2][0].innerHTML == 'O'){
+                alert("Player 2 Wins!");
+            }
+            if(boardArray[0][1].innerHTML == 'O' && boardArray[1][1].innerHTML == 'O' && boardArray[2][1].innerHTML == 'O'){
+                alert("Player 2 Wins!");
+            }
+            if(boardArray[0][2].innerHTML == 'O' && boardArray[1][1].innerHTML == 'O' && boardArray[2][2].innerHTML == 'O'){
+                alert("Player 2 Wins!");
+            }
+            if(boardArray[0][0].innerHTML == 'O' && boardArray[1][1].innerHTML == 'O' && boardArray[2][2].innerHTML == 'O'){
+                alert("Player 2 Wins!");
+            }
+            if(boardArray[2][0].innerHTML == 'O' && boardArray[1][1].innerHTML == 'O' && boardArray[0][2].innerHTML == 'O'){
+                alert("Player 2 Wins!");
             }
         }
+        
         var board = document.getElementById("board");
+        
         var boardArray = [];
+        
         makeBoard(board);
     </script>
 </html>
