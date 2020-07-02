@@ -72,7 +72,7 @@
         function checkWin() {
             if(boardArray[0][0].innerHTML == 'X' && boardArray[0][1].innerHTML == 'X' && boardArray[0][2].innerHTML == 'X'){
                 alert("Player 1 Wins!");
-                var playerOneScore = document.getElementById('player-1-score');
+                var playerOneScore = document.getElementById(parseInt('player-1-score'));
                 function addScore () {
                 playerOneScore += 1;
                 playerOneScore.innerHTML = 'playerOneScore';
