@@ -3,46 +3,62 @@
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+           
+        </style>
     </head>
     <body>
         <h1 class="text-center">Tic Tac Toe</h1>
         <br>
         <h2 id='player-turn' class='text-center'>Player 1's Turn</h2>
         <div class="container" id="board"></div>
+        <br>
+        <div class="score-board">
+            <h2 class="text-center blink">Scoreboard</h2>
+            <div class='row'>
+                <div class="col-3"></div>
+                <div class="col-3"><h3 class='text-center'>Player 1</h3></div>
+                <div class="col-3"><h3 class='text-center'>Player 2</h3></div>
+            </div>
+            <div class='row'>
+                <div class="col-3"></div>
+                <div class="col-3"><h3 id='player-one-score' class='text-center'>0</h3></div>
+                <div class="col-3"><h3 id='player-2-score' class='text-center'>0</h3></div>
+            </div>
+
+        </div>
     </body>
     <script type="text/javascript">
-        
         var player = true;
-        
-        
-
         function makeBoard(boardElement) {
             var playerTurn = document.getElementById('player-turn')
             var rows = 3;
             var columns = 3;
-
             for (let i = 0; i < rows; i++) {
                 var rowElement = document.createElement('div');
                 rowElement.className = 'row';
+                rowElement.setAttribute("style" ,"width:450px;margin: auto");
                 if(!boardArray[i]) {
                     boardArray[i] = [];
                 }
                 for (let j = 0; j < columns; j++) {
                     var columnElement = document.createElement('div');
-                    columnElement.className = 'col-sm-4 border text-center';
+                    columnElement.className = 'col-sm-4 border text-center mx-auto';
                     columnElement.innerHTML = ' ';
-                    columnElement.setAttribute("style" ,"height:100px");
+                    columnElement.setAttribute("style" ,"height:150px");
                     columnElement.id = i + '-' + j;
                     columnElement.addEventListener('click', function(){
                         if (this.innerHTML != 'X' && this.innerHTML != 'O'){
                             if (player) {
                                 this.innerHTML ="X";
+                                this.setAttribute("style", "margin:auto");
                                 checkWin();  
                                 rowElement.appendChild(columnElement);
                                 player = false;
                                 playerTurn.innerHTML=("Player 2's Turn")
                             }  else {
                                 this.innerHTML ="O";
+                                this.setAttribute("style", "margin:auto");
                                 checkWin();
                                 rowElement.appendChild(columnElement);
                                 player = true;
@@ -59,66 +75,196 @@
             }//end for i
             console.log(boardArray);
         }//end function makeBoard
-        
-               
+        function checkWin() {
+            if(boardArray[0][0].innerHTML == 'X' && boardArray[0][1].innerHTML == 'X' && boardArray[0][2].innerHTML == 'X'){
+                alert("Player 1 Wins!");
+                var playerOneScore = parseFloat(document.getElementById('player-one-score').innerHTML);
+                console.log(playerOneScore);
+                playerOneScore += 1;
+                console.log(playerOneScore);
+                document.getElementById('player-one-score').innerHTML = playerOneScore;
+                document.getElementById('board').innerHTML = '';
+                makeBoard (document.getElementById('board'));
 
-            function checkWin() {
+            }
+        }
+        function checkWin() {
             //Player 1 win conditions
             if(boardArray[0][0].innerHTML == 'X' && boardArray[0][1].innerHTML == 'X' && boardArray[0][2].innerHTML == 'X'){
                 alert("Player 1 Wins!");
+                var playerOneScore = parseFloat(document.getElementById('player-one-score').innerHTML);
+                console.log(playerOneScore);
+                playerOneScore += 1;
+                console.log(playerOneScore);
+                document.getElementById('player-one-score').innerHTML = playerOneScore;
+                document.getElementById('board').innerHTML = '';
+                makeBoard (document.getElementById('board'));
+
             }
             if(boardArray[1][0].innerHTML == 'X' && boardArray[1][1].innerHTML == 'X' && boardArray[1][2].innerHTML == 'X'){
                 alert("Player 1 Wins!");
+                var playerOneScore = parseFloat(document.getElementById('player-one-score').innerHTML);
+                console.log(playerOneScore);
+                playerOneScore += 1;
+                console.log(playerOneScore);
+                document.getElementById('player-one-score').innerHTML = playerOneScore;
+                document.getElementById('board').innerHTML = '';
+                makeBoard (document.getElementById('board'));
+
             }
             if(boardArray[2][0].innerHTML == 'X' && boardArray[2][1].innerHTML == 'X' && boardArray[2][2].innerHTML == 'X'){
                 alert("Player 1 Wins!");
+                var playerOneScore = parseFloat(document.getElementById('player-one-score').innerHTML);
+                console.log(playerOneScore);
+                playerOneScore += 1;
+                console.log(playerOneScore);
+                document.getElementById('player-one-score').innerHTML = playerOneScore;
+                document.getElementById('board').innerHTML = '';
+                makeBoard (document.getElementById('board'));
+
             }
             if(boardArray[0][0].innerHTML == 'X' && boardArray[1][0].innerHTML == 'X' && boardArray[2][0].innerHTML == 'X'){
                 alert("Player 1 Wins!");
+                var playerOneScore = parseFloat(document.getElementById('player-one-score').innerHTML);
+                console.log(playerOneScore);
+                playerOneScore += 1;
+                console.log(playerOneScore);
+                document.getElementById('player-one-score').innerHTML = playerOneScore;
+                document.getElementById('board').innerHTML = '';
+                makeBoard (document.getElementById('board'));
+
             }
             if(boardArray[0][1].innerHTML == 'X' && boardArray[1][1].innerHTML == 'X' && boardArray[2][1].innerHTML == 'X'){
                 alert("Player 1 Wins!");
+                var playerOneScore = parseFloat(document.getElementById('player-one-score').innerHTML);
+                console.log(playerOneScore);
+                playerOneScore += 1;
+                console.log(playerOneScore);
+                document.getElementById('player-one-score').innerHTML = playerOneScore;
+                document.getElementById('board').innerHTML = '';
+                makeBoard (document.getElementById('board'));
+
             }
             if(boardArray[0][2].innerHTML == 'X' && boardArray[1][1].innerHTML == 'X' && boardArray[2][2].innerHTML == 'X'){
                 alert("Player 1 Wins!");
+                var playerOneScore = parseFloat(document.getElementById('player-one-score').innerHTML);
+                console.log(playerOneScore);
+                playerOneScore += 1;
+                console.log(playerOneScore);
+                document.getElementById('player-one-score').innerHTML = playerOneScore;
+                document.getElementById('board').innerHTML = '';
+                makeBoard (document.getElementById('board'));
+
             }
             if(boardArray[0][0].innerHTML == 'X' && boardArray[1][1].innerHTML == 'X' && boardArray[2][2].innerHTML == 'X'){
                 alert("Player 1 Wins!");
+                var playerOneScore = parseFloat(document.getElementById('player-one-score').innerHTML);
+                console.log(playerOneScore);
+                playerOneScore += 1;
+                console.log(playerOneScore);
+                document.getElementById('player-one-score').innerHTML = playerOneScore;
+                document.getElementById('board').innerHTML = '';
+                makeBoard (document.getElementById('board'));
+
             }
             if(boardArray[2][0].innerHTML == 'X' && boardArray[1][1].innerHTML == 'X' && boardArray[0][2].innerHTML == 'X'){
                 alert("Player 1 Wins!");
+                var playerOneScore = parseFloat(document.getElementById('player-one-score').innerHTML);
+                console.log(playerOneScore);
+                playerOneScore += 1;
+                console.log(playerOneScore);
+                document.getElementById('player-one-score').innerHTML = playerOneScore;
+                document.getElementById('board').innerHTML = '';
+                makeBoard (document.getElementById('board'));
+
             }
             // Player 2 Win conditions
             if(boardArray[0][0].innerHTML == 'O' && boardArray[0][1].innerHTML == 'O' && boardArray[0][2].innerHTML == 'O'){
                 alert("Player 2 Wins!");
+                var playerTwoScore = parseFloat(document.getElementById('player-2-score').innerHTML);
+                console.log(playerTwoScore);
+                playerTwoScore += 1;
+                console.log(playerTwoScore);
+                document.getElementById('player-2-score').innerHTML = playerTwoScore;
+                document.getElementById('board').innerHTML = '';
+                makeBoard (document.getElementById('board'));
             }
             if(boardArray[1][0].innerHTML == 'O' && boardArray[1][1].innerHTML == 'O' && boardArray[1][2].innerHTML == 'O'){
                 alert("Player 2 Wins!");
+                var playerTwoScore = parseFloat(document.getElementById('player-2-score').innerHTML);
+                console.log(playerTwoScore);
+                playerTwoScore += 1;
+                console.log(playerTwoScore);
+                document.getElementById('player-2-score').innerHTML = playerTwoScore;
+                document.getElementById('board').innerHTML = '';
+                makeBoard (document.getElementById('board'));
             }
             if(boardArray[2][0].innerHTML == 'O' && boardArray[2][1].innerHTML == 'O' && boardArray[2][2].innerHTML == 'O'){
                 alert("Player 2 Wins!");
+                var playerTwoScore = parseFloat(document.getElementById('player-2-score').innerHTML);
+                console.log(playerTwoScore);
+                playerTwoScore += 1;
+                console.log(playerTwoScore);
+                document.getElementById('player-2-score').innerHTML = playerTwoScore;
+                document.getElementById('board').innerHTML = '';
+                makeBoard (document.getElementById('board'));
             }
             if(boardArray[0][0].innerHTML == 'O' && boardArray[1][0].innerHTML == 'O' && boardArray[2][0].innerHTML == 'O'){
                 alert("Player 2 Wins!");
+                var playerTwoScore = parseFloat(document.getElementById('player-2-score').innerHTML);
+                console.log(playerTwoScore);
+                playerTwoScore += 1;
+                console.log(playerTwoScore);
+                document.getElementById('player-2-score').innerHTML = playerTwoScore;
+                document.getElementById('board').innerHTML = '';
+                makeBoard (document.getElementById('board'));
             }
             if(boardArray[0][1].innerHTML == 'O' && boardArray[1][1].innerHTML == 'O' && boardArray[2][1].innerHTML == 'O'){
                 alert("Player 2 Wins!");
+                var playerTwoScore = parseFloat(document.getElementById('player-2-score').innerHTML);
+                console.log(playerTwoScore);
+                playerTwoScore += 1;
+                console.log(playerTwoScore);
+                document.getElementById('player-2-score').innerHTML = playerTwoScore;
+                document.getElementById('board').innerHTML = '';
+                makeBoard (document.getElementById('board'));
             }
             if(boardArray[0][2].innerHTML == 'O' && boardArray[1][1].innerHTML == 'O' && boardArray[2][2].innerHTML == 'O'){
                 alert("Player 2 Wins!");
+                var playerTwoScore = parseFloat(document.getElementById('player-2-score').innerHTML);
+                console.log(playerTwoScore);
+                playerTwoScore += 1;
+                console.log(playerTwoScore);
+                document.getElementById('player-2-score').innerHTML = playerTwoScore;
+                document.getElementById('board').innerHTML = '';
+                makeBoard (document.getElementById('board'));
             }
             if(boardArray[0][0].innerHTML == 'O' && boardArray[1][1].innerHTML == 'O' && boardArray[2][2].innerHTML == 'O'){
                 alert("Player 2 Wins!");
+                var playerTwoScore = parseFloat(document.getElementById('player-2-score').innerHTML);
+                console.log(playerTwoScore);
+                playerTwoScore += 1;
+                console.log(playerTwoScore);
+                document.getElementById('player-2-score').innerHTML = playerTwoScore;
+                document.getElementById('board').innerHTML = '';
+                makeBoard (document.getElementById('board'));
             }
             if(boardArray[2][0].innerHTML == 'O' && boardArray[1][1].innerHTML == 'O' && boardArray[0][2].innerHTML == 'O'){
                 alert("Player 2 Wins!");
+                var playerTwoScore = parseFloat(document.getElementById('player-2-score').innerHTML);
+                console.log(playerTwoScore);
+                playerTwoScore += 1;
+                console.log(playerTwoScore);
+                document.getElementById('player-2-score').innerHTML = playerTwoScore;
+                document.getElementById('board').innerHTML = '';
+                makeBoard (document.getElementById('board'));
             }
         }
         
+
+
         var board = document.getElementById("board");
-        
         var boardArray = [];
-        
         makeBoard(board);
     </script>
 </html>
