@@ -23,7 +23,11 @@
             <div class='row'>
                 <div class="col-3"></div>
                 <div class="col-3"><h3 id='player-one-score' class='text-center'>0</h3></div>
+
                 <div class="col-3"><h3 id='player-2-score' class='text-center'>0</h3></div>
+
+            
+
             </div>
 
         </div>
@@ -55,14 +59,14 @@
                                 checkWin();  
                                 rowElement.appendChild(columnElement);
                                 player = false;
-                                playerTurn.innerHTML=("Player 2's Turn")
+                                playerTurn.innerHTML=("Player 2's Turn - O")
                             }  else {
                                 this.innerHTML ="O";
                                 this.setAttribute("style", "margin:auto");
                                 checkWin();
                                 rowElement.appendChild(columnElement);
                                 player = true;
-                                playerTurn.innerHTML=("Player 1's Turn")
+                                playerTurn.innerHTML=("Player 1's Turn - X")
                                 }
                             } else {
                                 alert ('Please select an available space.')
@@ -75,16 +79,7 @@
             }//end for i
             console.log(boardArray);
         }//end function makeBoard
-        function checkWin() {
-            if(boardArray[0][0].innerHTML == 'X' && boardArray[0][1].innerHTML == 'X' && boardArray[0][2].innerHTML == 'X'){
-                alert("Player 1 Wins!");
-                var playerOneScore = parseFloat(document.getElementById('player-one-score').innerHTML);
-                console.log(playerOneScore);
-                playerOneScore += 1;
-                console.log(playerOneScore);
-                document.getElementById('player-one-score').innerHTML = playerOneScore;
-                document.getElementById('board').innerHTML = '';
-                makeBoard (document.getElementById('board'));
+
 
             }
         }
@@ -257,7 +252,8 @@
                 console.log(playerTwoScore);
                 document.getElementById('player-2-score').innerHTML = playerTwoScore;
                 document.getElementById('board').innerHTML = '';
-                makeBoard (document.getElementById('board'));
+                makeBoard (document.getElementById('board'))
+
             }
         }
         
