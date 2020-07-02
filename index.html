@@ -75,10 +75,11 @@
                 var playerOneScore = document.getElementById(parseInt('player-1-score'));
                 function addScore () {
                 playerOneScore += 1;
-                playerOneScore.innerHTML = 'playerOneScore';
                 }
                 addScore();
-                console.log(playerOneScore)
+                document.getElementById('player-1-score').innerHTML ="<h3 class='text-center'>" + playerOneScore + "</h3></div>";
+                
+
             }
         }
         var board = document.getElementById("board");
