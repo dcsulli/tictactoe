@@ -55,14 +55,14 @@
                                 checkWin();  
                                 rowElement.appendChild(columnElement);
                                 player = false;
-                                playerTurn.innerHTML=("Player 2's Turn")
+                                playerTurn.innerHTML=("Player 2's Turn - O")
                             }  else {
                                 this.innerHTML ="O";
                                 this.setAttribute("style", "margin:auto");
                                 checkWin();
                                 rowElement.appendChild(columnElement);
                                 player = true;
-                                playerTurn.innerHTML=("Player 1's Turn")
+                                playerTurn.innerHTML=("Player 1's Turn - X")
                                 }
                             } else {
                                 alert ('Please select an available space.')
